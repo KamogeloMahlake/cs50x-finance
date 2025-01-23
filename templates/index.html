@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Symbol</th>
+                    <th scope="col">Shares</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if portfolio %}
+
+                    {% for shares in portfolio %}
+                        <tr>
+                            {% for i in shares.values() %}
+                                <td>{{i}}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Cash</td>
+                    <td>{{ cash }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>TOTAL</td>
+                    <td>{{ total }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
